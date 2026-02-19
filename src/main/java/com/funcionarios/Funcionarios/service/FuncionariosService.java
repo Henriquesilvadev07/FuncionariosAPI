@@ -15,7 +15,7 @@ public class FuncionariosService {
     private FuncionariosRepository funcionariosRepository;
 
 
-    public FuncionariosModel salvarFuncionario(@RequestBody FuncionariosModel funcionarios) {
+    public FuncionariosModel salvarFuncionario(FuncionariosModel funcionarios) {
         return funcionariosRepository.save(funcionarios);
     }
 
@@ -25,12 +25,12 @@ public class FuncionariosService {
     }
 
 
-    public FuncionariosModel acharPorId(@PathVariable Long id) {
+    public FuncionariosModel acharPorId(Long id) {
         return funcionariosRepository.findById(id).orElseThrow();
     }
 
 
-    public FuncionariosModel atualizarPorId(@RequestBody FuncionariosModel funcionariosAtualizados, @PathVariable Long id) {
+    public FuncionariosModel atualizarPorId(FuncionariosModel funcionariosAtualizados, Long id) {
         FuncionariosModel funcionarios = funcionariosRepository.findById(id).orElseThrow();
 
         funcionarios.setNome(funcionariosAtualizados.getNome());
