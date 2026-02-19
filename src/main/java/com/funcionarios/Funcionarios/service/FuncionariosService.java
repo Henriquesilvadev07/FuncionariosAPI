@@ -14,22 +14,22 @@ public class FuncionariosService {
     @Autowired
     private FuncionariosRepository funcionariosRepository;
 
-    @PostMapping
+
     public FuncionariosModel salvarFuncionario(@RequestBody FuncionariosModel funcionarios) {
         return funcionariosRepository.save(funcionarios);
     }
 
-    @GetMapping
+
     public List<FuncionariosModel> listarFuncionarios() {
         return funcionariosRepository.findAll();
     }
 
-    @GetMapping
+
     public FuncionariosModel acharPorId(@PathVariable Long id) {
         return funcionariosRepository.findById(id).orElseThrow();
     }
 
-    @PutMapping
+
     public FuncionariosModel atualizarPorId(@RequestBody FuncionariosModel funcionariosAtualizados, @PathVariable Long id) {
         FuncionariosModel funcionarios = funcionariosRepository.findById(id).orElseThrow();
 
@@ -41,7 +41,7 @@ public class FuncionariosService {
         return funcionariosRepository.save(funcionarios);
     }
 
-    @DeleteMapping
+
     public void deletarPorId (Long id) {
         if (funcionariosRepository.existsById(id)) {
             funcionariosRepository.deleteById(id);
